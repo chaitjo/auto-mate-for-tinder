@@ -6,8 +6,8 @@ from rake import *
 
 if __name__ == "__main__":
     
-    facebook_id = 'chait9'
-    facebook_auth_token = 'CAAGm0PX4ZCpsBACscgykxm1p0L8vtbZAGW6JvjBbjAkZBUGqfXZCmAzGpZASDeCcr8JxX7M6cQ6qR89Ii8YPPLxY1fafnsMmRiOhvCPObSFwMQDZALE4Ntlw6KLgVRCKSgm4MpUcreNK4f69IHp1rGbQAB7G3IZCl3ZCfxtuNKFbF1V5HdKNJOZBFazUK7ljUbISC9n7t1DqxFLozv9VTwXEB'   
+    facebook_id = ''
+    facebook_auth_token = ''   
     user_limit = 1
     image_limit = 1
 
