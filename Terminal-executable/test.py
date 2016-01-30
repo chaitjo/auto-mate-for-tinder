@@ -22,7 +22,7 @@ if __name__ == "__main__":
     for user in users:
         print("\n----------\n\nRunning the algorithm for " + user.name + ', ' + str(user.age))
         total_skin_percent = 0.0
-        bio_score = 0.0
+        bio_score = 50.0
         final_percent = 0.0
 
         # Image nudity analysis
@@ -61,11 +61,13 @@ if __name__ == "__main__":
                         bio_score += ( -1.0*word_list[word]*totalKeywords/len(text.split()) ) * ( element[1]*1.0 / max_score )
         except: pass
         
+        if bio_score > 100 : bio_score = 100
+        
         print('\nBio: ' + text)
         print(keywords)
         print('Bio score = ' + str(bio_score))
 
-        final_percent = (total_skin_percent/50 + bio_score/5)*100
+        final_percent = (total_skin_percent + bio_score)/2
         print('\nFinal Score = ' + str(final_percent))
 
         user.like()
