@@ -137,7 +137,7 @@ class Rake(object):
         return sorted_keywords
         
 if __name__ == "__main__":
-    text = "This is a test. This is also a test, just to test repetition."
+    text = "This is a test. This is also a test, just to test repetition of the word 'test'."
     rake = Rake("rake_res/SmartStoplist.txt")
     keywords = rake.run(text.lower())
     print text
