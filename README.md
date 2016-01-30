@@ -9,7 +9,7 @@ Auto Mate uses cutting edge research in **Natural Language Processing** and **Fe
 * Django framework to deploy the webapp.
 
 # Authors
-* <a href="https://github.com/bbbranjan>Bobby Ranjan</a>
+* <a href="https://github.com/bbbranjan">Bobby Ranjan</a>
 * <a href="https://github.com/ckjoshi9">Chaitanya Joshi</a>
 
 # Disclaimer
