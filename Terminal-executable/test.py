@@ -5,9 +5,8 @@ from nude import *
 from rake import *
 
 if __name__ == "__main__":
-    
     facebook_id = ''
-    facebook_auth_token = ''   
+    facebook_auth_token = ''
     user_limit = 1
     image_limit = 1
 
@@ -22,7 +21,7 @@ if __name__ == "__main__":
     for user in users:
         print("\n----------\n\nRunning the algorithm for " + user.name + ', ' + str(user.age))
         total_skin_percent = 0.0
-        bio_score = 50.0
+        bio_score = 0.0
         final_percent = 0.0
 
         # Image nudity analysis
@@ -47,18 +46,16 @@ if __name__ == "__main__":
         # Bio text analysis
         try:
             text = user.bio.lower().replace('\n','. ')
-        
             rake = Rake("rake_res/SmartStoplist.txt")
             keywords = rake.run(text.lower())          
 
-            word_list = {'hook up':-10, 'hookup':-10, 'single':-5, 'booty':-9, 'fuck':-10, 'sex':-7, 'swip':-3, 'conversation':5, 'stories':7, 'right':-5, 'shag':-10, 'fit':-5, 'call':-2, 'personality':4, 'body':-6, 'cuddle':-3, 'mature':-1, 'smile':3, 'exchange':-8, 'temp':-8, 'sleep':-9}
-            max_score = max(wordscores.values())
-
+            word_list = {'hook up':-10, 'hookup':-10, 'single':-5, 'booty':-9, 'fuck':-10, 'sex':-7, 'swipe':-3, 'conversation':5, 'stories':7, 'right':-5, 'shag':-10, 'fit':-5, 'call':-2, 'personality':4, 'body':-6, 'cuddle':-3, 'mature':-1, 'smile':3, 'exchange':-8, 'temp':-8, 'sleep':-9}
+            
             #keywords -> list of tuples. Each element- (word, wordscore)
-            for element in keywords:
+            for element in keywords: 
                 for word in word_list.keys():
                     if (element[0] in word) or (word in element[0]):
-                        bio_score += ( -1.0*word_list[word]*totalKeywords/len(text.split()) ) * ( element[1]*1.0 / max_score )
+                        bio_score += -1.0*word_list[word]*element[1]
         except: pass
         
         if bio_score > 100 : bio_score = 100
