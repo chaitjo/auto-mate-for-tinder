@@ -48,7 +48,7 @@ if __name__ == "__main__":
             text = user.bio.lower().replace('\n','. ')
             rake = Rake("rake_res/SmartStoplist.txt")
             keywords = rake.run(text.lower())          
-
+            # TODO : make a function to form word_list from a binary file with word : score pairs
             word_list = {'hook up':-10, 'hookup':-10, 'single':-5, 'booty':-9, 'fuck':-10, 'sex':-7, 'swipe':-3, 'conversation':5, 'stories':7, 'right':-5, 'shag':-10, 'fit':-5, 'call':-2, 'personality':4, 'body':-6, 'cuddle':-3, 'mature':-1, 'smile':3, 'exchange':-8, 'temp':-8, 'sleep':-9}
             
             #keywords -> list of tuples. Each element- (word, wordscore)
