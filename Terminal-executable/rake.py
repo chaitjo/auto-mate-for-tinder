@@ -137,19 +137,8 @@ class Rake(object):
         return sorted_keywords
         
 if __name__ == "__main__":
-    text = "Hook ups are boot sex sexy"
+    text = "Test strings can be tested here. Testing for repetition. This should generate keyword and score pairs"
     rake = Rake("rake_res/SmartStoplist.txt")
     keywords = rake.run(text.lower())
     print text
     print keywords   
-    
-    # bio_score=0.0  
-    # word_list = {'hook up':-10, 'hookup':-10, 'single':-5, 'booty':-9, 'fuck':-10, 'sex':-7, 'swipe':-3, 'conversation':5, 'stories':7, 'right':-5, 'shag':-10, 'fit':-5, 'call':-2, 'personality':4, 'body':-6, 'cuddle':-3, 'mature':-1, 'smile':3, 'exchange':-8, 'temp':-8, 'sleep':-9}
-    
-    # #keywords -> list of tuples. Each element- (word, wordscore)
-    # for element in keywords: 
-    #     for word in word_list.keys():
-    #         if (element[0] in word) or (word in element[0]):
-    #             bio_score += -1.0*word_list[word]*element[1]
-
-    # print bio_score

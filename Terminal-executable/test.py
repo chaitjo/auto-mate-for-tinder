@@ -5,10 +5,10 @@ from nude import *
 from rake import *
 
 if __name__ == "__main__":
-    facebook_id = ''
-    facebook_auth_token = ''
-    user_limit = 1
-    image_limit = 1
+    facebook_id = raw_input("Facebook id linked to Tinder profile: ")
+    facebook_auth_token = raw_input("Facebook authentication token: ")
+    user_limit = input("\nNumber of tests: ")
+    image_limit = input("Number of images per test: ")
 
     session = pynder.Session(facebook_id, facebook_auth_token)
     total_users = session.nearby_users()
@@ -19,12 +19,12 @@ if __name__ == "__main__":
     
     user_number = 1
     for user in users:
-        print("\n----------\n\nRunning the algorithm for " + user.name + ', ' + str(user.age))
+        print("\n----------\n\nRunning the promiscuity algorithm for " + user.name + ', ' + str(user.age))
         total_skin_percent = 0.0
         bio_score = 0.0
         final_percent = 0.0
 
-        # Image nudity analysis
+        # Image analysis
         try:
             for i in range(image_limit):
                 image_name = str(user_number) + '_' + str(i+1) + '.jpg'
@@ -34,16 +34,16 @@ if __name__ == "__main__":
                 image.retrieve(photo_url, image_name)
 
                 skin_percent = 100*contains_nudity(image_name)
-                color_skin(image_name)
+                color_skin(image_name)      # only for testing accuracy of nude.py
                 print('Skin region percentage = ' + str(skin_percent))
                 total_skin_percent += skin_percent
-        except IndexError:
-                print('')
-
+                # TODO : delete the saved image 
+        except IndexError: print('')
+        
         total_skin_percent /= image_limit
         print('\nAverage skin region percentage = ' + str(total_skin_percent))
         
-        # Bio text analysis
+        # Bio analysis
         try:
             text = user.bio.lower().replace('\n','. ')
             rake = Rake("rake_res/SmartStoplist.txt")
@@ -51,7 +51,7 @@ if __name__ == "__main__":
             # TODO : make a function to form word_list from a binary file with word : score pairs
             word_list = {'hook up':-10, 'hookup':-10, 'single':-5, 'booty':-9, 'fuck':-10, 'sex':-7, 'swipe':-3, 'conversation':5, 'stories':7, 'right':-5, 'shag':-10, 'fit':-5, 'call':-2, 'personality':4, 'body':-6, 'cuddle':-3, 'mature':-1, 'smile':3, 'exchange':-8, 'temp':-8, 'sleep':-9}
             
-            #keywords -> list of tuples. Each element- (word, wordscore)
+            # keywords -> list of tuples. Each element- (word, wordscore)
             for element in keywords: 
                 for word in word_list.keys():
                     if (element[0] in word) or (word in element[0]):
@@ -69,5 +69,5 @@ if __name__ == "__main__":
             final_percent = total_skin_percent
         print('\nFinal Score = ' + str(final_percent))
 
-        user.like()
+        user.like()     # TODO : add conditions to automatic likes
         user_number += 1

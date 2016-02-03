@@ -7,5 +7,7 @@ python test.py
 ```
 
 # To-do
+* [ ] Expand the keyword dictionary used for bio analysis.
+* [ ] Determine correct weights to assign image component and bio component in final score. (Currently 50-50)
 * [ ] Incorporate <a href="https://howhot.io/">howhot.io</a>, possibly using <a href="https://pypi.python.org/pypi/mechanize/">mechanize</a> or <a href="https://pypi.python.org/pypi/selenium">selinium</a>.
 * [ ] Make fetching facebook authentication token automatic.

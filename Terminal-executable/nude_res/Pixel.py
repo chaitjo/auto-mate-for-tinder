@@ -32,6 +32,7 @@ class Pixel:
             return True
 
     def is_skin(self):
+        # TODO : try more RGB values to improve accuracy
         r = self.red
         g = self.green
         b = self.blue

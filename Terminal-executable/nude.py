@@ -33,18 +33,6 @@ def color_skin(image_path):
     color_skin_regions(image_path, save_path)
 
 if __name__ == "__main__":
+    # Can be used to test individual images
     print contains_nudity('test.jpg')
     color_skin('test.jpg')
-    # parser = argparse.ArgumentParser(description='Detect nudity in images.')
-    # parser.add_argument('filename', type=str, nargs=1)
-    # parser.add_argument('-c', action='store_true')
-    # args = parser.parse_args()
-    # if args.c is True:
-    #     color_skin(args.filename[0])
-    #     print "Skin regions covered in image saved at " + args.filename[0][:-4] + "-skinified.jpeg"
-    # else:
-    #     nudity = contains_nudity(args.filename[0])
-    #     if nudity:
-    #        print "Image contains nudity"
-    #     else:
-    #         print "Image doesn't contain nudity"
