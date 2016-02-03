@@ -1,3 +1,5 @@
+![logo](https://raw.githubusercontent.com/ckjoshi9/Auto-Mate-for-Tinder/master/logo.png)
+
 # Overview
 Auto Mate uses cutting edge research in **Natural Language Processing** and **Feature Extraction** to rank Tinder profiles and automatically swipes right on all those which pass the 'promiscuity test'.
 
