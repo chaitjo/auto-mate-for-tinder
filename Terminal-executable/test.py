@@ -57,14 +57,16 @@ if __name__ == "__main__":
                     if (element[0] in word) or (word in element[0]):
                         bio_score += -1.0*word_list[word]*element[1]
         except: pass
-        
         if bio_score > 100 : bio_score = 100
         
         print('\nBio: ' + text)
         print(keywords)
         print('Bio score = ' + str(bio_score))
-
-        final_percent = (total_skin_percent + bio_score)/2
+        
+        if bio_score != 0:
+            final_percent = (total_skin_percent + bio_score)/2
+        else:
+            final_percent = total_skin_percent
         print('\nFinal Score = ' + str(final_percent))
 
         user.like()
