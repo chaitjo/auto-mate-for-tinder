@@ -1,4 +1,5 @@
 import pynder
+import os
 import urllib
 
 from nude import *
@@ -37,7 +38,7 @@ if __name__ == "__main__":
                 color_skin(image_name)      # only for testing accuracy of nude.py
                 print('Skin region percentage = ' + str(skin_percent))
                 total_skin_percent += skin_percent
-                # TODO : delete the saved image 
+                os.remove(image_name)
         except IndexError: print('')
         
         total_skin_percent /= image_limit
