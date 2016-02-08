@@ -96,10 +96,11 @@ def analyze_regions(skin_pixels, skin_regions, bounding_region, width, height):
     if len(skin_regions) > 60 and bounding_region.average_intensity < (0.25 * 255):
         nudity = False
 
-    if nudity:
-        return 1.0
-    else:
-        return skin_pixels_percentage
+    return skin_pixels_percentage
+    # if nudity:
+    #     return 1.0
+    # else:
+    #     return skin_pixels_percentage
 
 def color_skin_regions(img_path, save_path):
     image = Image.open(img_path)
