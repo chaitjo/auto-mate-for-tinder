@@ -5,6 +5,19 @@ import urllib
 from nude import *
 from rake import *
 
+
+def load_word_list(word_list_file):
+    """
+    Function to load list of keywords and corresponding scores from a file and return as a dictionary.
+    @param word_list_file Path and file name of a file containing keyword : score pairs.
+    """
+    word_list = {}
+    for line in open(word_list_file):
+        splitPoint = line.index(' ')
+        word_list.update({ line[splitPoint+1:][:-1] : int(line[:splitPoint]) })
+    return word_list
+
+
 if __name__ == "__main__":
     facebook_id = ""
     facebook_auth_token = ""
@@ -36,10 +49,10 @@ if __name__ == "__main__":
                 image.retrieve(photo_url, image_name)
 
                 skin_percent = 100*contains_nudity(image_name)
-                # color_skin(image_name)      # only for testing accuracy of nude.py
+                color_skin(image_name)      # for testing accuracy of nude.py
                 print('Skin region percentage = ' + str(skin_percent))
                 total_skin_percent += skin_percent
-                os.remove(image_name)
+                #os.remove(image_name)
             else: break
             
         total_skin_percent /= image_count
@@ -47,19 +60,15 @@ if __name__ == "__main__":
         
 
         # Bio analysis
-        try:
-            text = user.bio.lower().replace('\n','. ')
-            rake = Rake("rake_res/SmartStoplist.txt")
-            keywords = rake.run(text.lower())          
-            # TODO : make a function to form word_list from a binary file with word : score pairs
-            word_list = {'hook up':-10, 'hookup':-10, 'single':-5, 'booty':-9, 'fuck':-10, 'sex':-7, 'swipe':-3, 'conversation':5, 'stories':7, 'right':-5, 'shag':-10, 'fit':-5, 'call':-2, 'personality':4, 'body':-6, 'cuddle':-3, 'mature':-1, 'smile':3, 'exchange':-8, 'temp':-8, 'sleep':-9}
-            
-            # keywords -> list of tuples. Each element- (word, wordscore)
-            for element in keywords: 
-                for word in word_list.keys():
-                    if (element[0] in word) or (word in element[0]):
-                        bio_score += -1.0*word_list[word]*element[1]
-        except: pass
+        text = user.bio.lower().replace('\n','. ')
+        rake = Rake("rake_res/SmartStoplist.txt")
+        keywords = rake.run(text.lower())        # keywords -> list of tuples. Each element- (word, wordscore)  
+        word_list = load_word_list("rake_res/WordList.txt")
+
+        for element in keywords: 
+            for word in word_list.keys():
+                if (element[0] in word) or (word in element[0]):
+                    bio_score += -1.0*word_list[word]*element[1]
         if bio_score > 100 : bio_score = 100
         
         print('\nBio: ' + text)

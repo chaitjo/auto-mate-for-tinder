@@ -17,7 +17,7 @@ def is_number(s):
 
 def load_stop_words(stop_word_file):
     """
-    Utility function to load stop words from a file and return as a list of words
+    Utility function to load stop words from a file and return as a list of words.
     @param stop_word_file Path and file name of a file containing stop words.
     @return list A list of stop words.
     """
@@ -141,4 +141,4 @@ if __name__ == "__main__":
     rake = Rake("rake_res/SmartStoplist.txt")
     keywords = rake.run(text.lower())
     print text
-    print keywords   
+    print keywords
