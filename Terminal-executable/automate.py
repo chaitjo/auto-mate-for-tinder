@@ -19,7 +19,6 @@ if __name__ == "__main__":
     else: users = total_users
     
     for user in users:
-        print("\n----------\n\nRunning the promiscuity algorithm for " + user.name + ', ' + str(user.age))
         total_skin_percent = 0.0
         bio_score = 0.0
         final_percent = 0.0
@@ -32,19 +31,15 @@ if __name__ == "__main__":
                 image_count += 1
                 image_name = 'temp'+str(image_count)+'.jpg'
                 photo_url = str(image)        
-                print('\nPhoto '+ str(image_count) + ':\n' + photo_url)
                 image = urllib.URLopener()
                 image.retrieve(photo_url, image_name)
 
                 skin_percent = 100*contains_nudity(image_name)
-                color_skin(image_name)      # for testing accuracy of nude.py
-                print('Skin region percentage = ' + str(skin_percent))
                 total_skin_percent += skin_percent
-                #os.remove(image_name)
+                os.remove(image_name)
             else: break
             
         total_skin_percent /= image_count
-        print('\nAverage skin region percentage = ' + str(total_skin_percent))
         
 
         # Bio analysis
@@ -58,17 +53,12 @@ if __name__ == "__main__":
                 if (element[0] in word) or (word in element[0]):
                     bio_score += -1.0*word_list[word]*element[1]
         if bio_score > 100 : bio_score = 100
-        
-        print('\nBio: ' + text)
-        print(keywords)
-        print('Bio score = ' + str(bio_score))
+
         
         # Combining Image and Bio scores
         if bio_score != 0:
             final_percent = (total_skin_percent + bio_score)/2
         else:
             final_percent = total_skin_percent
-        print('\nFinal Score = ' + str(final_percent))
 
-        like = input("Press 'L' to like: ")
-        if like == 'L' or like == 'l' : user.like()
+        if final_percent >= 25.0 : user.like()

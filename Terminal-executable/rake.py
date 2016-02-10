@@ -28,6 +28,17 @@ def load_stop_words(stop_word_file):
                 stop_words.append(word)
     return stop_words
 
+def load_word_list(word_list_file):
+    """
+    Function to load a list of keywords and corresponding scores from a file and return as a dictionary.
+    @param word_list_file Path and file name of a file containing keyword:score pairs.
+    """
+    word_list = {}
+    for line in open(word_list_file):
+        splitPoint = line.index(' ')
+        word_list.update({ line[splitPoint+1:][:-1] : int(line[:splitPoint]) })
+    return word_list
+
 
 def separate_words(text, min_word_return_size):
     """
@@ -137,8 +148,17 @@ class Rake(object):
         return sorted_keywords
         
 if __name__ == "__main__":
+    bio_score = 0
     text = "Test strings can be tested here. Testing for repetition. This should generate keyword and score pairs"
+    
     rake = Rake("rake_res/SmartStoplist.txt")
     keywords = rake.run(text.lower())
-    print text
-    print keywords
+    word_list = load_word_list("rake_res/WordList.txt")
+
+    for element in keywords: 
+            for word in word_list.keys():
+                if (element[0] in word) or (word in element[0]):
+                    bio_score += -1.0*word_list[word]*element[1]
+    
+    print(keywords)
+    print('Bio score = ' + str(bio_score))
