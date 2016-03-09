@@ -15,4 +15,4 @@ Auto Mate uses cutting edge research in **Natural Language Processing** and **Fe
 * <a href="https://github.com/ckjoshi9">Chaitanya Joshi</a>
 
 # Disclaimer
-No! We do not personally endorse casual sex.
+No! We do not personally endorse using Tinder to hookup.
