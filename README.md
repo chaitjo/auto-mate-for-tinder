@@ -5,8 +5,8 @@ Auto Mate uses cutting edge research in **Natural Language Processing** and **Fe
 
 # Tech
 * The unofficial <a href="https://gist.github.com/rtt/10403467">Tinder API documentation</a> and <a href="https://github.com/charliewolf/pynder">Pynder</a> (A Python client for the API) to interact with Tinder.
-* A modified version of <a href="https://github.com/ParthGandhi/nude.py">nude.py</a> to analyse images for nudity/semi-nudity and assign scores based on skin pixel percentage.
-* A modified <a href="https://github.com/aneesha/RAKE">Python implementation of the Rapid Automatic Keyword Extraction (RAKE) algorithm</a> to classify bio texts based on sentiment analysis of extracted keywords.
+* A modified version of <a href="https://github.com/ParthGandhi/nude.py">nude.py</a> to analyse images for nudity/semi-nudity and assign scores based on skin pixel percentage. (Which is funny, because this algorithm is actually used in pornography blocking software.) 
+* A <a href="https://github.com/aneesha/RAKE">Python implementation of the Rapid Automatic Keyword Extraction (RAKE) algorithm</a> in combination with a custom dictionary of keywords (each assigned a score) to obtain a total score for all the keywords in the bio text.
 * <a href="https://howhot.io/">Howhot.io</a> to rate images on a general level of attractiveness. (To-do)
 * Django framework to deploy the webapp.
 
