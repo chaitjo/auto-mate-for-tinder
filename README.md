@@ -6,7 +6,7 @@ Auto Mate uses cutting edge research in **Natural Language Processing** and **Fe
 # Tech
 * The unofficial <a href="https://gist.github.com/rtt/10403467">Tinder API documentation</a> and <a href="https://github.com/charliewolf/pynder">Pynder</a> (A Python client for the API) to interact with Tinder.
 * A modified version of <a href="https://github.com/ParthGandhi/nude.py">nude.py</a> to analyse images for nudity/semi-nudity and assign scores based on skin pixel percentage. (Which is funny, because this algorithm is actually used in pornography blocking software.) 
-* A <a href="https://github.com/aneesha/RAKE">Python implementation of the Rapid Automatic Keyword Extraction (RAKE) algorithm</a> to perform simple sentiment analysis. Keywords extracted from the bio are matched with a custom dictionary of keywords to obtain a score for the text.
+* A <a href="https://github.com/aneesha/RAKE">Python implementation of the Rapid Automatic Keyword Extraction (RAKE) algorithm</a> to perform simple sentiment analysis. Keywords extracted from the bio using the algorithm are matched with a custom dictionary of keywords to obtain a score for the text.
 * <a href="https://howhot.io/">Howhot.io</a> to rate images on a general level of attractiveness. (To-do)
 * Django framework to deploy the webapp.
 
@@ -16,9 +16,9 @@ Different parts of the algorithm in action.
 ### Image analysis
 ![Image](https://raw.githubusercontent.com/ckjoshi9/Auto-Mate-for-Tinder/master/Examples/image.jpg)
 
-The image analysis algorithm detects skin pixels and returns the total percentage of skin pixels in the image as the score. The more skin pixels on display, the greater the promiscuity.
+The image analysis algorithm detects skin pixels and returns the total percentage of skin pixels in the image as the score. The higher the score, the greater the promiscuity.
 
-The skin pixel patterns identified by the algorithm can be seen below.
+Though not perfect, the skin pixel patterns identified by the algorithm can be seen below.
 
 ![Emily Ratajkowski](https://raw.githubusercontent.com/ckjoshi9/Auto-Mate-for-Tinder/master/Examples/emily.jpg)
 ![Bradley Cooper](https://raw.githubusercontent.com/ckjoshi9/Auto-Mate-for-Tinder/master/Examples/cooper.jpg)
@@ -33,8 +33,8 @@ The RAKE algorithm extracts keywords from a bio, which are then matched with a c
 Jane Doe's friendly bio receives a negative score while John Doe gets a very high positive score for his flirty bio.
 
 # Authors
-* <a href="https://github.com/bbbranjan">Bobby Ranjan</a>
 * <a href="https://github.com/ckjoshi9">Chaitanya Joshi</a>
+* <a href="https://github.com/bbbranjan">Bobby Ranjan</a>
 
 # Disclaimer
 No! We do not personally endorse using Tinder to hookup.
