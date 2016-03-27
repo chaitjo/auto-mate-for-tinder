@@ -10,6 +10,8 @@ Auto Mate uses cutting edge research in **Natural Language Processing** and **Fe
 * <a href="https://howhot.io/">Howhot.io</a> to rate images on a general level of attractiveness. (To-do)
 * Django framework to deploy the webapp.
 
+**Check the [Examples](https://github.com/ckjoshi9/Auto-Mate-for-Tinder/tree/master/Examples#examples) folder for more.**
+
 # Authors
 * <a href="https://github.com/bbbranjan">Bobby Ranjan</a>
 * <a href="https://github.com/ckjoshi9">Chaitanya Joshi</a>
