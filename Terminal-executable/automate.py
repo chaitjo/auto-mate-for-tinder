@@ -47,11 +47,14 @@ if __name__ == "__main__":
         rake = Rake("rake_res/SmartStoplist.txt")
         keywords = rake.run(text.lower())        # keywords -> list of tuples. Each element- (word, wordscore)  
         word_list = load_word_list("rake_res/WordList.txt")
-
+        
         for element in keywords: 
             for word in word_list.keys():
                 if (element[0] in word) or (word in element[0]):
-                    bio_score += -1.0*word_list[word]*element[1]
+                    if 'no' in element[0] or 'not' in element[0]:
+                        bio_score += 1.0*word_list[word]*element[1]
+                    else: 
+                        bio_score -= 1.0*word_list[word]*element[1]  
         if bio_score > 100 : bio_score = 100
 
         

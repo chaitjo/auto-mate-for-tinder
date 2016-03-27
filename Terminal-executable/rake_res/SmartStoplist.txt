@@ -300,14 +300,12 @@ nevertheless
 new
 next
 nine
-no
 nobody
 non
 none
 noone
 nor
 normally
-not
 nothing
 novel
 now
@@ -367,7 +365,6 @@ regardless
 regards
 relatively
 respectively
-right
 s
 said
 same

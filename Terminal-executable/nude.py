@@ -34,5 +34,5 @@ def color_skin(image_path):
 
 if __name__ == "__main__":
     # Can be used to test individual images
-    print contains_nudity('test.jpg')
+    print "Skin pixel score= "+str(contains_nudity('test.jpg')*100)
     color_skin('test.jpg')

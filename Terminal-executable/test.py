@@ -56,7 +56,11 @@ if __name__ == "__main__":
         for element in keywords: 
             for word in word_list.keys():
                 if (element[0] in word) or (word in element[0]):
-                    bio_score += -1.0*word_list[word]*element[1]
+                    if 'no' in element[0] or 'not' in element[0]:
+                        bio_score += 1.0*word_list[word]*element[1]
+                    else: 
+                        bio_score -= 1.0*word_list[word]*element[1]  
+                
         if bio_score > 100 : bio_score = 100
         
         print('\nBio: ' + text)
@@ -70,5 +74,5 @@ if __name__ == "__main__":
             final_percent = total_skin_percent
         print('\nFinal Score = ' + str(final_percent))
 
-        like = input("Press 'L' to like: ")
+        like = raw_input("Press 'L' to like: ")
         if like == 'L' or like == 'l' : user.like()

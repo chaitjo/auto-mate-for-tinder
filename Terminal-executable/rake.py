@@ -149,16 +149,22 @@ class Rake(object):
         
 if __name__ == "__main__":
     bio_score = 0
-    text = "Test strings can be tested here. Testing for repetition. This should generate keyword and score pairs"
+    #text = "Hi! Name's John Doe. Pickup line specialist. Swipe right to find out. ;)"
+    #text = "Hello! I'm Jane Doe. I'm all about good conversations and smiles. Tell me your stories."
+    text = "Type something to test here."
     
     rake = Rake("rake_res/SmartStoplist.txt")
     keywords = rake.run(text.lower())
     word_list = load_word_list("rake_res/WordList.txt")
 
     for element in keywords: 
-            for word in word_list.keys():
-                if (element[0] in word) or (word in element[0]):
-                    bio_score += -1.0*word_list[word]*element[1]
-    
+        for word in word_list.keys():
+            if (element[0] in word) or (word in element[0]):
+                if 'no' in element[0] or 'not' in element[0]:
+                    bio_score += 1.0*word_list[word]*element[1]
+                else: 
+                    bio_score -= 1.0*word_list[word]*element[1]              
+
+    print(text)
     print(keywords)
     print('Bio score = ' + str(bio_score))
