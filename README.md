@@ -1,7 +1,7 @@
 ![logo](https://raw.githubusercontent.com/ckjoshi9/Auto-Mate-for-Tinder/master/logo.png)
 
 # Overview
-Auto Mate uses cutting edge research in **Natural Language Processing** and **Feature Extraction** to rank Tinder profiles and automatically swipes right on all those which pass the 'promiscuity test'.
+Auto Mate uses existing research in **Natural Language Processing** and **Computer Vision** to rank Tinder profiles and automatically swipes right on all those which pass the 'promiscuity test'.
 
 # Tech
 * The unofficial <a href="https://gist.github.com/rtt/10403467">Tinder API documentation</a> and <a href="https://github.com/charliewolf/pynder">Pynder</a> (A Python client for the API) to interact with Tinder.
