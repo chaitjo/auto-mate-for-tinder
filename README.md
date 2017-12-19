@@ -3,6 +3,8 @@
 # Overview
 Auto Mate uses existing research in **Natural Language Processing** and **Computer Vision** to rank Tinder profiles and automatically swipes right on all those which pass the 'promiscuity test'.
 
+**Read more in the blog post here: [chaitjo.github.io/automate](https://chaitjo.github.io/automate/).**
+
 # Tech
 * The unofficial <a href="https://gist.github.com/rtt/10403467">Tinder API documentation</a> and <a href="https://github.com/charliewolf/pynder">Pynder</a> (A Python client for the API) to interact with Tinder.
 * A modified version of <a href="https://github.com/ParthGandhi/nude.py">nude.py</a> to analyse images for nudity/semi-nudity and assign scores based on skin pixel percentage. (Which is funny, because this algorithm is actually used in pornography blocking software.) 
