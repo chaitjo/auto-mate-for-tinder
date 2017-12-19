@@ -17,4 +17,4 @@ Auto Mate uses existing research in **Natural Language Processing** and **Comput
 * <a href="https://github.com/bbbranjan">Bobby Ranjan</a>
 
 # Disclaimer
-No! We do not personally endorse using Tinder to hookup.
+We do not personally endorse or condemn using Tinder for hooking up, nor can we speak for the results obtained by using our application. The idea came about as a joke when we were having a deep conversation about how society and dating had changed for the worse, and was meant to be a parody of how young people use Tinder: brainlessly swiping right to bounce from one meaningless fling to another. 
